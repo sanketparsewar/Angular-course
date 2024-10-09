@@ -1,0 +1,85 @@
+<div class="header mt-2 bg-secondary p-3 text-white mb-3">
+    <h1>Template Form</h1>
+    <p>using ngModel</p>
+
+</div>
+
+
+<!-- here all out input elements are inside the form tag so we have to give the name atribute to all the input fileds -->
+<!-- #form is hash attribute means we are creating a varibale in html template and storing the value ngForm inside it -->
+<form class="row g-3 col-8" #form="ngForm">
+    <div class="col-md-4">
+        <label class="form-label">First name</label>
+        <!-- #fName is hash attribute means we are creating a varibale in html template and storing the value ngModel inside it -->
+        <input type="text" name="firstName" #fName="ngModel" [(ngModel)]="studentObj.firstName" class="form-control" required minlength="3">
+      <!-- here we have added the validations on the input field by checking the error property of ngModel -->
+        <div class="text-danger">
+            <!-- ngModel has some default properties that we have accessed here -->
+            @if((fName.touched || fName.dirty) && fName.errors?.['required']){
+                <span>This is required!</span>
+            }
+            @else if((fName.touched || fName.dirty) &&  fName.errors?.['minlength']){
+                <span>Minimum 3 Char required</span>
+            }
+        </div>
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Last name</label>
+        <input type="text" name="lastName" #lName="ngModel" [(ngModel)]="studentObj.lastName" class="form-control" required minlength="3">
+        <div class="text-danger">
+            @if((lName.touched || lName.dirty) && lName.errors?.['required']){
+                <span>This is required!</span>
+            }
+            @else if((lName.touched || lName.dirty) &&  lName.errors?.['minlength']){
+                <span>Minimum 3 Char required</span>
+            }
+        </div>
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Username</label>
+        <div class="input-group ">
+            <span class="input-group-text">&#64;</span>
+            <input type="text" name="userName" [(ngModel)]="studentObj.userName" class="form-control">
+
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">City</label>
+        <input type="text" name="city" [(ngModel)]="studentObj.city" class="form-control" required>
+        
+
+    </div>
+    <div class="col-md-3">
+        <label class="form-label">State</label>
+        <select class="form-select" name="state" [(ngModel)]="studentObj.state">
+            <option selected disabled value="">Choose...</option>
+            <option>Maharashtra</option>
+            <option>Goa</option>
+            <option>Delhi</option>
+            <option>Panjab</option>
+        </select>
+
+    </div>
+    <div class="col-md-3">
+        <label class="form-label">Zip</label>
+        <input type="text" name="zipCode" [(ngModel)]="studentObj.zipCode" class="form-control" required>
+
+    </div>
+    <div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" name="isAcceptTerms" [(ngModel)]="studentObj.isAcceptTerms" type="checkbox"
+                value="">
+            <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+            </label>
+        </div>
+    </div>
+    <div class="col-12">
+        
+        <button class="btn btn-primary" [disabled]="form.invalid" (click)="onSubmit()" type="submit">Submit form</button>
+        <button class="ms-2 btn btn-secondary" type="button" (click)="resetForm()">Reset form</button>
+    </div>
+</form>
+<div class="col-5">
+    {{formValue | json}}
+</div>

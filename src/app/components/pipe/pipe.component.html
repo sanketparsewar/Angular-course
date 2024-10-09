@@ -1,0 +1,80 @@
+<div class="header mt-2 bg-secondary p-3 text-white">
+    <h1>Pipes</h1>
+    <p>Default Pipe & custom Pipe</p>
+</div>
+
+<div class="row pt-2 ">
+    <div class="col-3 ">
+        Original value- {{firstName}}
+        <br>
+        after Pipe- {{firstName | uppercase}}
+    </div>
+    <div class="col-3 ">
+        Original value- {{firstName}}
+        <br>
+        after Pipe- {{firstName | lowercase}}
+    </div>
+
+    <div class="col-3 ">
+        Original value- {{firstName}}
+        <br>
+        after Pipe- {{firstName | titlecase}}
+    </div>
+
+    <div class="col-3 ">
+        Original value- {{currentDate}}
+        <br>
+        after Pipe- {{currentDate | date}}
+    </div>
+</div>
+<div class="row pt-5 ">
+    <div class="col-3 ">
+        Original value- {{currentDate | date:'dd-MM-yyyy'}}
+        <br>
+        after Pipe- {{currentDate | date:'dd-MM-yy'}}
+    </div>
+    <div class="col-3 ">
+        Original value- {{currentDate | date:'dd-MMM-yyyy'}}
+        <br>
+        after Pipe- {{currentDate | date:'dd/MMM/yy'}}
+    </div>
+
+    <div class="col-3 ">
+        Original value- {{currentDate}}
+        <br>
+        after Pipe- {{currentDate | date:'hh:mm':'UTC'}}
+
+    </div>
+
+    <div class="col-3 ">
+        Original value- {{amount}}
+        <br>
+        after Pipe- {{amount | currency}}
+    </div>
+</div>
+
+<div class="row pt-5 ">
+    <div class="col-3 ">
+        Original value- {{marks}}
+        <br>
+        after Pipe- {{marks | percent}}
+    </div>
+    <div class="col-3 ">
+        Original value- {{student}}
+        <br>
+        after Pipe- {{student | json}}
+    </div>
+
+    <div class="col-3 ">
+        Original value- {{currentTime}}
+        <br>
+        after Pipe- {{currentTime | async}}
+
+    </div>
+
+    <div class="col-3 ">
+        Original value- {{student.state}}
+        <br>
+        after Pipe- {{student.state | na}}
+    </div>
+</div>

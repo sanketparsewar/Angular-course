@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-4">
+        one way data Binding - from .ts to .html
+    </div>
+    <div class="col-4">
+
+    </div>
+    <div class="col-4">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="row">
+            <div class="col-4 bg-success">
+                <h6>interpolation-</h6>
+                <!-- interpolation - means two curly brackets in which we can send the name of variables declare in .ts file -->
+                <!-- in output window this will show the value that is stored in this variable -->
+                <h5>{{courseName}} </h5>
+                <div>{{inputType}}</div>
+                <input type="text " value='{{courseName}}' placeholder="Enter text here">
+                <input type="{{inputType}}" checked>
+            </div>
+            <div class="col-4">
+                <h6>Property binding</h6>
+                <!-- in property binding we have to wrap that property in [] and directly pass that variable name  -->
+                <div [class]="myClassName">Danger</div>
+                <input type="text" [value]="courseName">
+                <input [type]="inputType">
+            </div>
+            <div class="col-4">
+                <!-- here by using click event inside () means when th button is clicked it should call the written function with given parameter -->
+                <button class="btn btn-success" (click)="showAlert('Welcome Angular 18')">show Welcome</button>
+                <span (click)="showAlert('Welcome! from span')">click me</span>
+                <button class="btn btn-success" (click)="changeCourseName()">change courseName & signal value</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+       <input type="text" [(ngModel)]="courseName" name="" id=""> -{{courseName}}
+       <input type="checkbox" [(ngModel)]="isValid" name="" id=""> -{{isValid}}
+       <select [(ngModel)]="stateName">
+        <option value="">select</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Goa">Goa</option>
+       </select>
+    </div>
+    <div class="col-6">
+        <!-- to access we have to use interpolation but the variable name should be written as function  -->
+        displaying signal below
+        <h3>{{firstName()}}</h3>
+    </div>
+
+</div>

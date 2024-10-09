@@ -1,0 +1,94 @@
+<div class="header mt-2 bg-secondary p-3">
+    <h1>Directive- structural directive</h1>
+    <p>*ngIf, *ngFor...</p>
+    <!-- routing to attribut component using function -->
+    <button class="btn btn-primary" (click)="navigateToAttribute()">Go to Attribute</button>
+</div>
+
+
+<div class="row pt-2 text-center">
+    <div class="col-3 ">
+        <div *ngIf="isDiv1Visible" class="bg-danger p-3">Div-1</div>
+    </div>
+    <div class="col-3 ">
+        <div *ngIf="isDiv2Visible" class="bg-success p-3">Div-2</div>
+    </div>
+    <div class="col-3 ">
+        <div *ngIf="num1==num2" class="bg-secondary p-3">Div-3</div>
+    </div>
+    <div class="col-3 ">
+        <div *ngIf="selectedState=='MH'" class="bg-primary p-3">Div-4</div>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-3 text-center">
+        <button class="btn btn-danger me-2" (click)="hideDiv1()">Remove</button>
+        <button class="btn btn-primary ms-2" (click)="showDiv1()">Show</button>
+    </div>
+    <div class="col-3 text-center">
+        <button class="btn btn-success" (click)="toggleDiv2()">Toggle</button>
+    </div>
+    <div class="col-3 text-center">
+        <input class="col-6" [(ngModel)]="num1" type="text" placeholder="Num-1">
+        <input class="col-6" [(ngModel)]="num2" type="text" placeholder="Num-2">
+    </div>
+    <div class="col-3 text-center justify-content-around d-flex">
+        <input [(ngModel)]="isActive" type="checkbox">
+        <select [(ngModel)]="selectedState">
+            <option value="">select</option>
+            <option value="MH">MH</option>
+            <option value="UP">UP</option>
+            <option value="AP">AP</option>
+            <option value="MP">MP</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <ul>
+            <li *ngFor="let city of cityArray">{{city}}</li>
+        </ul>
+    </div>
+    <div class="col-3">
+        <div *ngFor="let cityname of cityArray">{{cityname}}</div>
+    </div>
+    <div class="col-3">
+        <select name="" id="">
+            <option value="">select</option>
+            <option [value]="cityName" *ngFor="let cityName of cityArray">{{cityName}}</option>
+        </select>
+    </div>
+    <div class="col-3">
+        <select name="" id="">
+            <option [value]="student.studId" *ngFor="let student of studentList" >{{student.name}}</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>sr.no</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody class="border-1">
+                <tr *ngFor="let stud of studentList;let srNo = index" >
+                    <!-- here we dont want student id we want srNo so we used let srNo = index -->
+                     <!-- sr starts from 0 -->
+                    <td>{{srNo+1}}</td> 
+                    <td>{{stud.name}}</td>
+                    <td>{{stud.city}}</td>
+                    <td>
+                        <span *ngIf="stud.isActive">Active</span>
+                        <span *ngIf="!stud.isActive">De-active</span>
+                       </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

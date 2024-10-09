@@ -1,0 +1,19 @@
+<div class="header mt-2 bg-secondary p-3 text-white mb-3">
+    <h1>Reactive Form</h1>
+    <p>Create form and Validation</p>
+
+</div>
+
+<div class="row">
+    <div class="col-4 text-center">
+        <button class="btn btn-primary" (click)="getAllUser()">Get User</button>
+    </div>
+    <div class="col-4">
+        <h4>User data fetched from api</h4>
+        <ul>
+            @for(item of userList;track $index){
+            <li>{{item.name}}, {{item.email}}</li>
+            }
+        </ul>
+    </div>
+</div>

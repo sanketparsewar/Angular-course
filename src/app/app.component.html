@@ -1,0 +1,100 @@
+<!-- <h1>hey there</h1> -->
+<!-- <table style="width: 100%;">
+  <tr>
+    <td>
+      <app-add-employee></app-add-employee>
+    </td>
+    <td>
+      <app-employee-list></app-employee-list>
+    </td>
+  </tr>
+</table> -->
+
+<!-- <h1>Data binding</h1> -->
+<!-- <app-data-binding></app-data-binding> -->
+
+<!-- <h1>Directive- Structural directive</h1>  -->
+<!-- <app-structural-directive></app-structural-directive> -->
+
+<!-- <h1>Directive- Attribute directive</h1> -->
+<!-- <app-attribute-directive></app-attribute-directive> -->
+
+<!-- Nav tabs -->
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="emp-list" aria-current="page">Employee List
+            <span class="visually-hidden">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="add-emp">Add Employee</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Directives
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="structural-dir">Structural Dir</a></li>
+            <li><a class="dropdown-item" routerLink="attribute-dir">Attribute Dir</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Control Flow
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="if-else">&#64;If</a></li>
+            <li><a class="dropdown-item" routerLink="for">&#64;For, &#64;switch</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="app-pipe">Pipe</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Forms
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="app-template">template using ngModel</a></li>
+            <li><a class="dropdown-item" routerLink="app-reactive">Reactive form</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            APIs
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="get-api">get api</a></li>
+            <li><a class="dropdown-item" routerLink="post-api">post api</a></li>
+          </ul>
+        </li>
+
+      </ul>
+      <!-- <form class="d-flex my-2 my-lg-0">
+        <input class="form-control me-sm-2" type="text" placeholder="Search" />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form> -->
+    </div>
+  </div>
+</nav>
+
+
+<!-- (Optional) - Place this js code after initializing bootstrap.min.js or bootstrap.bundle.min.js -->
+<script>
+  var triggerEl = document.querySelector("#navId a");
+  bootstrap.Tab.getInstance(triggerEl).show(); // Select tab by name
+</script>
+
+<!-- router-outlet is a driective which is responsible to renter active component -->
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

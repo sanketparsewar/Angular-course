@@ -1,0 +1,130 @@
+<div class="header mt-2 bg-secondary p-3 text-white">
+    <h1>Control flow For and switch</h1>
+    <p>&#64;For, switch Case</p>
+</div>
+
+
+<div class="row">
+    <div class="col-3">
+        <input type="text" [(ngModel)]="dayNumber" placeholder="Enter number between 1 to 7">
+    </div>
+    <div class="col-3">Day Name is:
+        @switch(dayNumber){
+            @case('1'){
+                <span>Monday</span>
+            }
+            @case('2'){
+                <span>Tuesday</span>
+            }
+            @case('3'){
+                <span>Wednesday</span>
+            }
+            @case('4'){
+                <span>Thursday</span>
+            }
+            @case('5'){
+                <span>Friday</span>
+            }
+            @case('6'){
+                <span>Saturday</span>
+            }
+            @case('7'){
+                <span>Sunday</span>
+            }
+            @default{
+                <span>Invalid Entry</span>
+            }
+        }
+    </div>
+</div>
+
+
+
+
+<div class="row pt-2 text-center">
+    <div class="col-3 ">
+        <ul>
+            <!-- here we are using control flow @for to print array as list elements in ul -->
+            @for(item of cityArray;track $index){
+            <li>{{item}}</li>
+            }
+        </ul>
+    </div>
+    <div class="col-3 ">
+        @for(city of cityArray; track $index){
+        <div>{{city}}</div>
+        }
+    </div>
+
+    <div class="col-3 ">
+
+        <select>
+            @for(city of cityArray;track $index){
+            <option [value]="city">{{city}}</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-3 ">
+        <select>
+            @for(stud of studentList;track $index){
+            <option [value]="stud.studId">{{stud.name}}</option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-3 text-center">
+        <button class="btn btn-danger me-2">Remove</button>
+        <button class="btn btn-primary ms-2">Show</button>
+    </div>
+    <div class="col-3 text-center">
+        <button class="btn btn-success">Toggle</button>
+    </div>
+    <div class="col-3 text-center">
+        <input class="col-6" type="text" placeholder="Num-1">
+        <input class="col-6" type="text" placeholder="Num-2">
+    </div>
+    <div class="col-3 text-center justify-content-around d-flex">
+        <!-- <input type="checkbox"> -->
+        <select>
+            <option value="">select status</option>
+            <option value="Active">Active</option>
+            <option value="De-Active">De-Active</option>
+            <option value="Pending">Pending</option>
+        </select>
+    </div>
+</div>
+
+<div class="row m-3">
+    <div class="col-5">
+        <div class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr No.</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Status</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @for(student of studentList;track $index){
+                <tr>
+                    <td>{{$index+1}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.city}}</td>
+                    <td>@if(student.isActive){
+                             Active
+                            }
+                        @else{
+                            De-active
+                            }
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </div>
+    </div>
+</div>

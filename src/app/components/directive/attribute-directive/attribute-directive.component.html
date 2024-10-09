@@ -1,0 +1,90 @@
+<div class="header p-2 mt-2 mb-2 bg-secondary text-white">
+    <h1>Directive- Attribute directive</h1>
+    <p>[ngClass], [ngStyle]</p>
+    <!-- inside a component yo can route to another component -->
+    <button class="btn btn-primary" [routerLink]="['/structural-dir']">Got to Structural</button>
+</div>
+
+<div class="row ">
+    <div class="col-3 ">
+        <div class=" text-center p-3" [ngClass]="div1BgColor">Div-1</div>
+    </div>
+    <div class="col-3 ">
+        <div class="text-center p-3" [ngClass]="isDiv2Active?'bg-success':'bg-warning'">Div-2</div>
+    </div>
+    <div class="col-3 ">
+        <div class="bg-secondary text-center p-3" [ngClass]="num1==num2?'bg-secondary':'bg-danger'">Div-3</div>
+    </div>
+    <div class="col-3 ">
+        <div class="bg-primary text-center p-3" [ngClass]="isCheckboxActive?'bg-primary':'bg-danger'">Div-4</div>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-3">
+        <div class="text-center d-flex justify-content-evenly">
+            <button class="btn btn-danger " (click)="dangerColor()">Add Red</button>
+            <button class="btn btn-primary" (click)="primaryColor()">Add Blue</button>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="text-center">
+            <button class="btn btn-success" (click)="toggleDiv2BgColor()">Toggle</button>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="d-flex ">
+            <input class="col-6" [(ngModel)]="num1" type="text" placeholder="Num-1">
+            <input class="col-6" [(ngModel)]="num2" type="text" placeholder="Num-2">
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="d-flex justify-content-around">
+            <input type="checkbox" [(ngModel)]="isCheckboxActive" name="" id="">
+            <select name="" id="">
+                <option value="">select</option>
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr No.</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Gender</th>
+                    <th>Status</th>
+                    <th>Total Mark</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let stud of studentList; let srNo=index ">
+                    <td>{{srNo+1}}</td>
+                    <td>{{stud.name}}</td>
+                    <td>{{stud.city}}</td>
+                    <td>{{stud.gender}}</td>
+                    <td [ngStyle]="{'background-color':stud.isActive?'green':'transparent'}">
+                        {{stud.isActive?'Active':'De-active'}}
+                    </td>
+                    <td>
+                        <div class="progress">
+                            <div class="progress-bar" [ngStyle]="{'width':stud.totalMarks+'%'}">{{stud.totalMarks}}</div>
+                        </div>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-5">
+        <div [ngStyle]="customStyle"></div>
+    </div>
+</div>
